@@ -12,21 +12,17 @@ const markup = galleryItems.map(({preview, original, description}) =>
 </a>
 </li>`})
     .join("");
-console.dir(markup)
+
 gallery.insertAdjacentHTML("beforeend", markup);
+
+let lightbox = new SimpleLightbox('.gallery a', {captionsData: "alt", captionDelay: 250});
+
 gallery.addEventListener("click", onClick);
 function onClick(event) {
     event.preventDefault();
     if(!event.target.classList.contains("gallery__image"))
     {return;}
     
-    const data = event.target.dataset.source;
-    const currentItem = galleryItems.find(({original}) => 
-         original === data
-         );
-         const instance = basicLightbox.create(`<div class="modal">
-         <img class="gallery__image" src="${currentItem.original}" alt="${currentItem.description}"
-/></div>`);
-console.log(instance)
-instance.show();
-    
+    lightbox.show();
+}
+

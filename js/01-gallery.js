@@ -24,7 +24,6 @@ function onClick(event) {
          const instance = basicLightbox.create(`<div class="modal">
          <img class="gallery__image" src="${currentItem.original}" alt="${currentItem.description}"
 /></div>`);
-console.log(instance)
 instance.show();
     
 };
