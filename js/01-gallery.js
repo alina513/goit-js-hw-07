@@ -25,5 +25,11 @@ function onClick(event) {
          <img class="gallery__image" src="${currentItem.original}" alt="${currentItem.description}"
 /></div>`);
 instance.show();
-    
-};
+
+document.addEventListener("keydown", onKeyClose);
+function onKeyClose(event) 
+{ if (event.code === "Escape") {
+    instance.close();
+    document.removeEventListener("keydown", onKeyClose);
+}
+}}
